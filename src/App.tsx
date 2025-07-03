@@ -1,9 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import './styles/App.scss';
-import HomePage from './pages/HomePage';
-import CityDetailPage from './pages/CityDetailPage';
 import Header from './components/Header';
+import CityDetailPage from './pages/CityDetailPage';
+import HomePage from './pages/HomePage';
 
 const App: React.FC = () => {
   return (

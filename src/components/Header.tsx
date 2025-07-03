@@ -5,9 +5,13 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">Weather Helper</Link>
+        <Link to="/" className="logo">
+          Weather Helper
+        </Link>
         <nav className="nav">
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
         </nav>
       </div>
     </header>

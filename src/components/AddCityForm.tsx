@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchWeatherForCity, selectWeatherStatus } from '../store/weatherSlice';
 
@@ -23,14 +24,10 @@ const AddCityForm: React.FC = () => {
         className="form-control"
         placeholder="Enter city name (e.g., London, Kyiv, New York)"
         value={cityName}
-        onChange={(e) => setCityName(e.target.value)}
+        onChange={e => setCityName(e.target.value)}
         disabled={isLoading}
       />
-      <button 
-        type="submit" 
-        className="btn" 
-        disabled={isLoading || !cityName.trim()}
-      >
+      <button type="submit" className="btn" disabled={isLoading || !cityName.trim()}>
         {isLoading ? 'Adding...' : 'Add City'}
       </button>
     </form>

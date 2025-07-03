@@ -27,13 +27,17 @@ export const fetchCityWeather = async (cityName: string) => {
       },
     });
     return response.data;
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error fetching weather data:', error);
 
     // Provide more helpful error messages for common API issues
-    if (error.response && error.response.status === 401) {
-      console.error('API Key Error: Your API key is invalid or missing. Please check your OpenWeatherMap API key in weatherApi.ts');
-      throw new Error('Invalid API key. Please add a valid OpenWeatherMap API key in the weatherApi.ts file.');
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
+      console.error(
+        'API Key Error: Your API key is invalid or missing. Please check your OpenWeatherMap API key in weatherApi.ts'
+      );
+      throw new Error(
+        'Invalid API key. Please add a valid OpenWeatherMap API key in the weatherApi.ts file.'
+      );
     }
 
     throw error;
@@ -53,13 +57,17 @@ export const fetchCityHourlyForecast = async (cityName: string) => {
       },
     });
     return response.data;
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error fetching hourly forecast:', error);
 
     // Provide more helpful error messages for common API issues
-    if (error.response && error.response.status === 401) {
-      console.error('API Key Error: Your API key is invalid or missing. Please check your OpenWeatherMap API key in weatherApi.ts');
-      throw new Error('Invalid API key. Please add a valid OpenWeatherMap API key in the weatherApi.ts file.');
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
+      console.error(
+        'API Key Error: Your API key is invalid or missing. Please check your OpenWeatherMap API key in weatherApi.ts'
+      );
+      throw new Error(
+        'Invalid API key. Please add a valid OpenWeatherMap API key in the weatherApi.ts file.'
+      );
     }
 
     throw error;

@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { useAppDispatch } from '../hooks/redux';
-import { WeatherData, updateCityWeather, removeCity } from '../store/weatherSlice';
+import { WeatherData } from '../interface/WeatherData';
+import { updateCityWeather, removeCity } from '../store/weatherSlice';
 
 interface CityCardProps {
   city: WeatherData;
@@ -16,26 +18,26 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => {
   };
 
   const handleUpdateClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card click
+    e.stopPropagation();
     dispatch(updateCityWeather(city.id));
   };
 
   const handleRemoveClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card click
+    e.stopPropagation();
     dispatch(removeCity(city.id));
   };
 
-  // Get weather icon URL
   const weatherIcon = city.weather[0]?.icon;
   const iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
-  // Format date
   const lastUpdated = new Date(city.lastUpdated).toLocaleTimeString();
 
   return (
     <div className="city-card card" onClick={handleCardClick}>
       <div className="card-header">
-        <h3>{city.name}, {city.sys.country}</h3>
+        <h3>
+          {city.name}, {city.sys.country}
+        </h3>
       </div>
       <div className="card-body">
         <div className="d-flex align-items-center">
@@ -43,7 +45,7 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => {
           <div className="temperature">{Math.round(city.main.temp)}°C</div>
         </div>
         <div className="weather-description">{city.weather[0]?.description}</div>
-        
+
         <div className="weather-details">
           <div className="detail-item">
             <span className="label">Feels like:</span>
