@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <header className="header">
       <div className="container">
@@ -9,9 +12,11 @@ const Header: React.FC = () => {
           Weather Helper
         </Link>
         <nav className="nav">
-          <NavLink to="/" end>
-            Home
-          </NavLink>
+          {!isHomePage && (
+            <NavLink to="/" end>
+              Home
+            </NavLink>
+          )}
         </nav>
       </div>
     </header>
