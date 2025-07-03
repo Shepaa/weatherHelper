@@ -12,6 +12,9 @@
 /build
 /dist
 
+#test files
+test-api.js
+
 # misc
 .DS_Store
 .env
