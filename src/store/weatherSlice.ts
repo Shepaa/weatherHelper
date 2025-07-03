@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from './index';
 import { fetchCityWeather, fetchCityHourlyForecast } from '../api/weatherApi';
-import { HourlyForecast } from '../interface/HourlyForecast';
-import { WeatherData } from '../interface/WeatherData';
+import { HourlyForecast } from '../interfaces/HourlyForecast';
+import { WeatherData } from '../interfaces/WeatherData';
 
 interface WeatherState {
   cities: WeatherData[];

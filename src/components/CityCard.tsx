@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '../hooks/redux';
-import { WeatherData } from '../interface/WeatherData';
+import { WeatherData } from '../interfaces/WeatherData';
 import { updateCityWeather, removeCity } from '../store/weatherSlice';
 
 interface CityCardProps {
@@ -67,7 +67,7 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => {
       </div>
       <div className="card-footer">
         <small>Last updated: {lastUpdated}</small>
-        <div>
+        <div className="btn-wrapper">
           <button className="btn btn-secondary mr-1" onClick={handleUpdateClick}>
             Update
           </button>
